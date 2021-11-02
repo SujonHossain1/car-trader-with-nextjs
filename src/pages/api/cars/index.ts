@@ -22,6 +22,22 @@ const carHandler = async (req: NextApiRequest, res: NextApiResponse) => {
                 message,
             });
         }
+    } else if (method === 'GET') {
+        try {
+            const cars = await Car.find({});
+            res.status(200).json({
+                success: true,
+                data: cars,
+                message: '',
+            });
+        } catch (error) {
+            const { message } = error as Error;
+            res.status(404).json({
+                success: false,
+                data: null,
+                message,
+            });
+        }
     }
 };
 
