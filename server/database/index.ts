@@ -9,7 +9,6 @@ const DBConnect = async () => {
         console.log('Database Already Connected');
         return;
     }
-
     const db = await mongoose.connect('mongodb://localhost:27017/car-trader');
 
     connection.isConnected = db.connections[0].readyState;
