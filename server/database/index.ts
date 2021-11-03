@@ -4,7 +4,7 @@ const connection = {
     isConnected: 0,
 };
 
-const DBConnect = async () => {
+const DBConnect = async (): Promise<void> => {
     if (connection.isConnected) {
         console.log('Database Already Connected');
         return;
